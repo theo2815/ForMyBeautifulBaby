@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Pacifico&family=Pixelify+Sans:wght@400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fdf2f8; /* Pink 50 */
+  color: #db2777; /* Pink 600 */
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+  
+  /* Pastel Grid Background */
+  background-image: 
+    linear-gradient(#fbcfe8 1px, transparent 1px),
+    linear-gradient(90deg, #fbcfe8 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Paper Card Effect */
+.paper-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 20px 25px -5px rgba(236, 72, 153, 0.15); /* Pink shadow */
+  border: 4px solid #fff;
+  position: relative;
+}
+
+/* Sticker Effect */
+.sticker {
+  filter: drop-shadow(0 4px 0 rgba(0,0,0,0.1));
+  stroke: white;
+  stroke-width: 4px; /* Simulation via drop-shadow if SVG, or border for boxes */
+}
+
+/* Image Sticker Border */
+.img-sticker {
+  padding: 4px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Polaroid Effect */
+.polaroid {
+  background-color: white;
+  padding: 16px 16px 60px 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+  z-index: 10;
+}
+
+/* Pulse Ring Animation */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Jelly Button Animation */
+@keyframes jelly {
+  0%, 100% { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}
+
+.hover-jelly:hover {
+  animation: jelly 0.5s;
+}
+
+/* Marker Highlight */
+.marker-highlight {
+  position: relative;
+  z-index: 1;
+}
+
+.marker-highlight::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: -5px;
+  right: -5px;
+  height: 12px;
+  background-color: #fce7f3; /* Pink 100 */
+  border-radius: 4px;
+  transform: translateY(-20%) rotate(-1deg);
+  opacity: 0.8;
+}
+
+/* Floating Doodles Background */
+.doodle-bg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  animation: float-doodle 10s linear infinite;
+}
+
+@keyframes float-doodle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Cat Color Filters */
+.cat-pink {
+  filter: hue-rotate(300deg) saturate(1.2) brightness(1.1);
+}
+::-webkit-scrollbar-track {
+  background: #fdf2f8; 
+}
+::-webkit-scrollbar-thumb {
+  background: #f472b6; 
+  border-radius: 5px;
+  border: 2px solid #fdf2f8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ec4899; 
+}
